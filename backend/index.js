@@ -1,10 +1,13 @@
 import mongoose from "mongoose";
 import express from "express";
 import multer from "multer";
+import dotenv from "dotenv";
 
+dotenv.config()
 const app = express();
 const port = 5000;
-mongoose.connect('mongodb+srv://admin:54321@cluster0.ugix0ql.mongodb.net/ecommercedb?retryWrites=true&w=majority&appName=Cluster0/')
+
+
 
 const storage = multer.diskStorage({
 destination: 'upload/images',
@@ -112,6 +115,14 @@ app.get('/', (req, res) => {
 })
 
 
+
+mongoose.connect( process.env.MONGO_URL)
+.then(() => {
+    console.log("Connected to MongoDB")
+})
+.catch((err) => {
+    console.log("Error connecting to MongoDB", err)
+})
 app.listen(port, (error) => {
     if (error) {
         console.error("Error",error)
