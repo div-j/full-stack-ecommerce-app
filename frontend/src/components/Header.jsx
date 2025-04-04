@@ -13,11 +13,12 @@ export default function Header() {
       <Navbar fluid rounded className=" shadow-md  p-4">
         <Navbar.Brand >
             <Link to={'/'}>
-          <img
+          {/* <img
             src="assets/logo.svg"
             className="mr-3 h-6 sm:h-9"
             alt="logo"
-          />
+          /> */}
+          <h1 className="text-2xl font-bold text-gray-800">KO-Fashion</h1>
         </Link>
 
         
